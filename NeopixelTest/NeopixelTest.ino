@@ -57,5 +57,8 @@ void setup()
 
 void loop()
 {
-  
+  fill(myStrips[0], RED);
+  delay(250);
+  fill(myStrips[0], RED);
+  delay(250);
 }
