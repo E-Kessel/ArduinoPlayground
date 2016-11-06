@@ -7,6 +7,8 @@
 
 const unsigned int PIXELS = 16;
 const unsigned int MAX_BRIGHTNESS = 32; //  1/8 max brightness, (mostly) eye safe
+//const unsigned int MAX_BRIGHTNESS = 255; //  100% max brightness, NOT eye safe (AND VERY WARM)
+
 
 // Parameter 1 = number of pixels in strip
 // Parameter 2 = Arduino pin number (most are valid)
@@ -40,7 +42,7 @@ const unsigned int MAX_BRIGHTNESS = 32; //  1/8 max brightness, (mostly) eye saf
 //
 // This distinction will be important when we discuss "heap"
 // memory later (which does NOT initialize memory)
-//
+
 Adafruit_NeoPixel myStrips[] =
 {
   Adafruit_NeoPixel(PIXELS, PIN, NEO_GRB + NEO_KHZ800)
@@ -51,14 +53,31 @@ Adafruit_NeoPixel myStrips[] =
 void setup()
 {
   myStrips[0].begin();
-  myStrips[0].setBrightness(32);
-  myStrips[0].show(); // Initialize all pixels to 'off'
+  myStrips[0].setBrightness(MAX_BRIGHTNESS);
+  fill(myStrips[0], BLACK); // Initialize all pixels to 'off'
+//
+//  for (int i = 0; i < 3; i++)
+//  {
+//    fill(myStrips[0], RED);
+//    delay(333);
+//    fill(myStrips[0], GREEN);
+//    delay(333);
+//    fill(myStrips[0], BLUE);
+//    delay(333);
+//  }
+//  
+//  fill(myStrips[0], BLACK);
+//
+//  wipe(myStrips[0], RED, 1000);
+//  wipe(myStrips[0], GREEN, 1000);
+//  wipe(myStrips[0], BLUE, 1000);
+
+  theaterChase(myStrips[0], WHITE, 4, 50000000, 25);
 }
 
 void loop()
 {
-  fill(myStrips[0], RED);
-  delay(250);
-  fill(myStrips[0], RED);
-  delay(250);
+  //  Do Nuthin'
 }
+
+
