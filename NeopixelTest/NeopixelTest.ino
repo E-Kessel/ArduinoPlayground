@@ -3,11 +3,10 @@
   #include <avr/power.h>
 #endif
 
-#define PIN 6
-
-const unsigned int PIXELS = 16;
-const unsigned int MAX_BRIGHTNESS = 32; //  1/8 max brightness, (mostly) eye safe
-//const unsigned int MAX_BRIGHTNESS = 255; //  100% max brightness, NOT eye safe (AND VERY WARM)
+const uint16_t PIN  = 6;
+const uint16_t PIXELS = 16;
+const uint16_t MAX_BRIGHTNESS = 32; //  1/8 max brightness, (mostly) eye safe
+//const uint16_t MAX_BRIGHTNESS = 255; //  100% max brightness, NOT eye safe (AND VERY WARM)
 
 
 // Parameter 1 = number of pixels in strip
@@ -55,24 +54,26 @@ void setup()
   myStrips[0].begin();
   myStrips[0].setBrightness(MAX_BRIGHTNESS);
   fill(myStrips[0], BLACK); // Initialize all pixels to 'off'
-//
-//  for (int i = 0; i < 3; i++)
-//  {
-//    fill(myStrips[0], RED);
-//    delay(333);
-//    fill(myStrips[0], GREEN);
-//    delay(333);
-//    fill(myStrips[0], BLUE);
-//    delay(333);
-//  }
-//  
-//  fill(myStrips[0], BLACK);
-//
-//  wipe(myStrips[0], RED, 1000);
-//  wipe(myStrips[0], GREEN, 1000);
-//  wipe(myStrips[0], BLUE, 1000);
 
-  theaterChase(myStrips[0], WHITE, 4, 50000000, 25);
+  for (int i = 0; i < 3; i++)
+  {
+    fill(myStrips[0], RED);
+    delay(333);
+    fill(myStrips[0], GREEN);
+    delay(333);
+    fill(myStrips[0], BLUE);
+    delay(333);
+  }
+  
+  fill(myStrips[0], BLACK);
+
+  wipe(myStrips[0], RED, 1000);
+  wipe(myStrips[0], GREEN, 1000);
+  wipe(myStrips[0], BLUE, 1000);
+
+  theaterChase(myStrips[0], WHITE, 4, 10, 150);
+  theaterChase(myStrips[0], YELLOW, 4, 10, 150);
+  theaterChase(myStrips[0], ORANGE, 4, 10, 150);
 }
 
 void loop()
