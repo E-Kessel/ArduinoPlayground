@@ -3,7 +3,7 @@
 Good Macros:
   EVER      - Use in for loops to loop forever
   LENGTH(x) - Returns the number of items in an array
-  LAST(x)   - Returns index of last item in array
+  LAST(x)   - Returns last item in array
 
 ********************************************************/
 
@@ -12,6 +12,6 @@ Good Macros:
 
 #define EVER (;;)
 #define LENGTH(x) (sizeof(x)/sizeof(x[0]))
-#define LAST(x) (LENGHT(x)-1)
+#define LAST(x) x[(LENGTH(x)-1)]
 
 #endif
