@@ -22,8 +22,8 @@ void setup()
   
   myLights.begin();
 
-  Serial.println(RED);
-  Serial.println(BLACK);
+  DEBUG_PRINTLN(RED);
+  DEBUG_PRINTLN(BLACK);
   
   myLights.setBrightness(0, 25);
   //myLights.startBlinking(0, BLUE, 120000, 280000, ORANGE);
@@ -35,7 +35,7 @@ void setup()
   //myLights.startSnore(0, VIOLET, 3000000);
   //myLights.startChase(0, GREEN, 5, 75000, 3, BLACK, StripManager::UP);
   //myLights.sparkleStrip(0, 100000);
-  Serial.println("Function Set...");
+  DEBUG_PRINTLN("Function Set...");
 }
 
 void loop()
