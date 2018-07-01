@@ -2,7 +2,7 @@
 #include "StripManager.h"
 
 #define BAUDRATE 250000
-#define NUM_MODES 7
+#define NUM_MODES 8
 
 MicroTimer timer_us;
 
@@ -91,18 +91,21 @@ void loop()
           myLights.startBlinking(0, RED, 250000, 250000, BLUE);
           break;
         case 2:
-          myLights.startBounce(0, BLUE_LIGHT, 50000, 8, ORANGE_DARK);
+          myLights.startBlinking(0, YELLOW, 666667, 333333, CYAN);
           break;
         case 3:
-          myLights.startBounce(0, RED, 70000, 1);
+          myLights.startBounce(0, BLUE_LIGHT, 50000, 8, ORANGE_DARK);
           break;
         case 4:
-          myLights.startChase(0, ORANGE, 6, 75000, 2, BLACK, StripManager::UP);
+          myLights.startBounce(0, RED, 70000, 1);
           break;
         case 5:
-          myLights.startChase(0, MAGENTA, 3, 90000, 1, VIOLET_DARK, StripManager::DOWN);
+          myLights.startChase(0, ORANGE, 6, 75000, 2, BLACK, StripManager::UP);
           break;
         case 6:
+          myLights.startChase(0, YELLOWGREEN, 3, 90000, 1, VIOLET_DARK, StripManager::DOWN);
+          break;
+        case 7:
           myLights.sparkleStrip(0, 100000);
           break;
         default:
